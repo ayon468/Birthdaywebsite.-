@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0,
+      maximum-scale=1.0, user-scalable=no">
+
+<title>Happy Birthday Susmita ❤️</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  min-height:100vh;
+  overflow-x:hidden;
+  background:
+    radial-gradient(circle at 50% 10%,#3b125e 0%,#16051f 45%,#030308 100%);
+  color:white;
+  font-family:Arial,sans-serif;
+}
+
+.page{
+  min-height:100vh;
+  padding:30px 16px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  position:relative;
+  z-index:2;
+}
+
+/* TOP TEXT */
+
+.gift{
+  font-size:14px;
+  letter-spacing:3px;
+  color:#ffd5ec;
+  margin-bottom:18px;
+  animation:fadeIn 1.2s ease;
+}
+
+/* NAME */
+
+.name{
+  font-size:clamp(45px,15vw,85px);
+  font-weight:900;
+  letter-spacing:4px;
+
+  background:linear-gradient(
+    90deg,
+    #ffffff,
+    #ff8dcc,
+    #ffffff
+  );
+
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+
+  filter:drop-shadow(0 0 18px #ff36a8);
+  animation:glow 2.2s infinite alternate;
+}
+
+/* BIRTHDAY */
+
+.birthday{
+  margin-top:12px;
+  font-size:clamp(25px,8vw,45px);
+  font-weight:bold;
+  color:#fff;
+  text-shadow:
+    0 0 10px #ff55b4,
+    0 0 25px #ff55b4;
+}
+
+/* MESSAGE */
+
+.message{
+  max-width:480px;
+  margin-top:18px;
+  color:#efddec;
+  font-size:15px;
+  line-height:1.6;
+}
+
+/* BUTTON */
+
+.openBtn{
+  margin-top:30px;
+  padding:15px 26px;
+
+  border:none;
+  border-radius:50px;
+
+  color:white;
+  background:linear-gradient(
+    135deg,
+    #ff2099,
+    #8d4dff
+  );
+
+  font-size:16px;
+  font-weight:bold;
+
+  box-shadow:0 0 25px #ff209955;
+
+  cursor:pointer;
+  transition:transform .2s ease;
+}
+
+.openBtn:active{
+  transform:scale(.94);
+}
+
+/* BALLOONS */
+
+.balloon{
+  position:fixed;
+  width:40px;
+  height:52px;
+  bottom:-80px;
+  border-radius:50%;
+  z-index:1;
+  pointer-events:none;
+  animation:balloonUp 11s linear infinite;
+}
+
+.balloon::after{
+  content:"";
+  position:absolute;
+  width:1px;
+  height:65px;
+  background:#ffffff70;
+  top:50px;
+  left:50%;
+}
+
+.b1{
+  left:7%;
+  background:#ff4d6d;
+}
+
+.b2{
+  left:27%;
+  background:#4ddcff;
+  animation-delay:2s;
+}
+
+.b3{
+  left:50%;
+  background:#ffd43b;
+  animation-delay:4s;
+}
+
+.b4{
+  left:73%;
+  background:#a855f7;
+  animation-delay:1s;
+}
+
+.b5{
+  left:90%;
+  background:#55efc4;
+  animation-delay:5s;
+}
+
+@keyframes balloonUp{
+  0%{
+    transform:translateY(0) rotate(-5deg);
+    opacity:0;
+  }
+
+  10%{
+    opacity:1;
+  }
+
+  50%{
+    transform:translateY(-55vh) rotate(5deg);
+  }
+
+  100%{
+    transform:translateY(-115vh) rotate(-5deg);
+    opacity:0;
+  }
+}
+
+/* FLOWERS */
+
+.flower{
+  position:fixed;
+  top:-40px;
+  font-size:20px;
+  z-index:1;
+  pointer-events:none;
+  animation:flowerFall 8s linear infinite;
+}
+
+.f1{left:12%;animation-delay:1s;}
+.f2{left:35%;animation-delay:3s;}
+.f3{left:58%;animation-delay:5s;}
+.f4{left:82%;animation-delay:2s;}
+
+@keyframes flowerFall{
+  0%{
+    transform:translateY(-50px) rotate(0deg);
+    opacity:0;
+  }
+
+  10%{
+    opacity:1;
+  }
+
+  100%{
+    transform:translateY(110vh) rotate(360deg);
+    opacity:0;
+  }
+}
+
+/* LETTER */
+
+.letter{
+  width:100%;
+  max-width:580px;
+
+  margin-top:35px;
+  padding:24px 19px;
+
+  display:none;
+
+  text-align:left;
+
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.16);
+
+  border-radius:20px;
+
+  box-shadow:
+    0 0 30px rgba(255,40,160,.18);
+
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+
+  animation:letterIn .8s ease forwards;
+}
+
+.letter h2{
+  text-align:center;
+  color:#ff9bd5;
+  font-size:22px;
+  margin-bottom:20px;
+}
+
+.letter p{
+  color:#f5e8f1;
+  font-size:15px;
+  line-height:1.8;
+  margin-bottom:15px;
+}
+
+.signature{
+  text-align:right;
+  color:#ff9bd5;
+  font-weight:bold;
+  line-height:1.7;
+}
+
+@keyframes letterIn{
+  from{
+    opacity:0;
+    transform:translateY(45px) scale(.96);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+  .page{
+    padding:25px 14px;
+  }
+
+  .gift{
+    font-size:11px;
+    letter-spacing:2px;
+  }
+
+  .name{
+    font-size:15vw;
+    letter-spacing:2px;
+  }
+
+  .birthday{
+    font-size:8vw;
+  }
+
+  .message{
+    font-size:14px;
+    padding:0 8px;
+  }
+
+  .openBtn{
+    font-size:15px;
+    padding:14px 23px;
+  }
+
+  .letter{
+    padding:21px 16px;
+  }
+
+  .letter h2{
+    font-size:20px;
+  }
+
+  .letter p{
+    font-size:14px;
+    line-height:1.75;
+  }
+}
+
+/* TEXT ANIMATION */
+
+@keyframes fadeIn{
+  from{
+    opacity:0;
+    transform:translateY(10px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@keyframes glow{
+  from{
+    filter:drop-shadow(0 0 10px #ff36a8);
+  }
+
+  to{
+    filter:
+      drop-shadow(0 0 22px #ff36a8)
+      drop-shadow(0 0 35px #8d4dff);
+  }
+}
+
+/* REDUCE MOTION FOR LOW POWER DEVICES */
+
+@media(prefers-reduced-motion:reduce){
+
+  *,
+  *::before,
+  *::after{
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    scroll-behavior:auto !important;
+  }
+}
+</style>
+</head>
+
+
+<body>
+
+<!-- BALLOONS -->
+<div class="balloon b1"></div>
+<div class="balloon b2"></div>
+<div class="balloon b3"></div>
+<div class="balloon b4"></div>
+<div class="balloon b5"></div>
+
+<!-- FLOWERS -->
+<div class="flower f1">🌸</div>
+<div class="flower f2">🌹</div>
+<div class="flower f3">🌷</div>
+<div class="flower f4">✨</div>
+
+
+<div class="page">
+
+  <!-- FIRST SCREEN -->
+
+  <div class="gift">
+    ✨ A small wishe for u ✨
+  </div>
+
+  <div class="name">
+    SUSMITA
+  </div>
+
+  <div class="birthday">
+    HAPPY BIRTHDAY 🎂
+  </div>
+
+  <div class="message">
+    Today is a beautiful day because someone
+    very special was born<💖
+    And it's my madam jii>.
+    May your day be filled with smiles,
+    happiness and beautiful memories.
+  </div>
+
+
+  <!-- OPEN LETTER -->
+
+  <button class="openBtn" onclick="openLetter()">
+    💌 OPEN it Pio 💌
+  </button>
+
+
+  <!-- LETTER -->
+
+  <div class="letter" id="letter">
+
+    <h2>
+      💖 A Birthday Letter For my madam jii💝
+    </h2>
+
+    <p>
+     Dear madam jii <3 🌸,
+    </p>
+
+    <p>
+      Happy Birthday!! 🎂✨
+     <p> 
+      Many many returns of the day💝
+      
+    
+
+    <p>
+      u know u'r the one of my most favourit person.💕🫶🏽
+
+      SUSMITA ami sotti onk lucky,bcz ami tmr moto 1ta vhalo fd paichi. ami jani na tmi amar bisoye o same vhabo naki kinto amr jonno tmi onk special🌸✨.
+    </p>
+
+Vhogoban er kache prarthona kori tmi sob smy sustho thako. Tmr mokher hasi ta jeno sob smy thake. Tmr future life ta onk sondor hok.💝🌸✨
+    
+    </p>
+
+R eii pagla ta re konosmy vhoilo na. Mone raikho .Beshi na tmr moner ek konay falaiya raikho eii pagol ta re🙂..<3!!
+    <p>
+      Once again, wishing you a very
+      <b>Happy Birthday, pio!! 🎉🎈</b>
+    </p>
+
+    <div class="signature">
+      With lots of love ❤️<br>
+      — ur paglo🌚
+    </div>
+
+  </div>
+
+</div>
+
+
+<script>
+
+function openLetter(){
+
+  const letter =
+    document.getElementById("letter");
+
+  letter.style.display = "block";
+
+  setTimeout(function(){
+
+    letter.scrollIntoView({
+      behavior:"smooth",
+      block:"center"
+    });
+
+  },100);
+
+}
+
+</script>
+
+</body>
+</html>
